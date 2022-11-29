@@ -17,18 +17,24 @@ def listar_personas():
     for persona in personas:
         Persona.convertir_a_string(persona)
 
-
+def buscar_persona():
+    dni:str=str(input("Ingrese DNI para buscar persona: "))
+    for persona in personas:
+        if persona.dni== dni:
+            Persona.convertir_a_string(persona)
 def main():
     continuar: bool = True
 
     while continuar:
         valor: str = str(
-            input("ingrese caso 1 para agregar persona,2 para listar personas, 10 para terminar: "))
+            input("ingrese caso 1 para agregar persona,2 para listar personas, 3 para buscar persina, 10 para terminar: "))
         match valor:
             case "1":
                 persona()
             case "2":
                 listar_personas()
+            case "3":
+                buscar_persona()
 
             case "10":
                 continuar = False
