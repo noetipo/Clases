@@ -2,11 +2,11 @@ class Persona:
     """Clase que construye persona"""
 
     def __init__(self, dni, nombres, apellidos, direccion, telefono):
-        self.dni = dni
-        self.nombres = nombres
-        self.apellidos = apellidos
-        self.direccion = direccion
-        self.telefono = telefono
+        self.dni:str = dni
+        self.nombres:str = nombres
+        self.apellidos:str = apellidos
+        self.direccion:str = direccion
+        self.telefono:str = telefono
         print(self.convertir_a_string())
         pass
 
