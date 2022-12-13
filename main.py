@@ -6,6 +6,19 @@ personas: Persona = []
 productos: Producto = []
 factutas: Factura = []
 
+lista_personas: list = [{"dni": "47259691", "nombres": "Noe1",
+                         "apellidos": "Tipo Mamani", "direccion": "jr demo", "telefono": "997124032"},
+                         {"dni": "47259692", "nombres": "Noe",
+                         "apellidos": "Tipo Mamani", "direccion": "jr demo", "telefono": "997124033"},
+                         {"dni": "47259693", "nombres": "Noe",
+                         "apellidos": "Tipo Mamani", "direccion": "jr demo", "telefono": "997124034"},
+                         {"dni": "47259694", "nombres": "Noe",
+                         "apellidos": "Tipo Mamani", "direccion": "jr demo", "telefono": "997124035"}]
+
+def cargar_datos():
+    for persona in lista_personas:
+        persona: Persona = Persona(persona["dni"],persona["nombres"] , persona["apellidos"], persona["direccion"], persona["telefono"])
+        personas.append(persona)
 
 def persona():
     dni: str = str(input("Ingrese DNI: "))
@@ -80,7 +93,7 @@ def nueva_factura():
         cantidad: int = int(input("Ingrese la cantidad: "))
         factura.detalle.append(FacturaDetalle(
             producto.codigo, producto.nombre, cantidad, producto.precio))
-        
+
         condicion: str = str(input("SI para agregar productos: "))
 
         if condicion == "SI":
@@ -95,15 +108,19 @@ def listar_factura():
     for factura in factutas:
         Factura.convertir_a_string(factura)
 
+
 def buscar_factura():
-    numero:int=int(input("Ingrese el numero de la factura: "))
+    numero: int = int(input("Ingrese el numero de la factura: "))
     for factura in factutas:
-        if factura.numero==numero:
+        if factura.numero == numero:
             Factura.convertir_a_string(factura)
             print("===========================")
             for detalle in factura.detalle:
                 FacturaDetalle.convertir_a_string(detalle)
+
+
 def main():
+    cargar_datos()
     continuar: bool = True
 
     while continuar:
